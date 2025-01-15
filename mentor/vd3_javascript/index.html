@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Hover Effect</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+    <div class="cars">
+        <img src="img/redcar.png" class="main">
+
+    <div class="thumbnails">
+        <img src="img/yellowcar.png" >
+        <img src="img/bluecar.png" >
+        <img src="img/whitecar.png">
+        <img src="img/redcar.png" >
+        
+    </div>
+    </div>
+    
+<script>
+    document.querySelectorALL('.thumbnails>img').forEach(function(e){
+    e.addEventListener('mouseover',function(){
+        document.querySelector('.main').src = e.src;
+    });
+})
+</script>
+
+</body>
+</html>

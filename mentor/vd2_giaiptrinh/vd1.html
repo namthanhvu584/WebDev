@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giai Phuong Trinh Bac Nhat</title>
+    <link rel="stylesheet" href="vd1.css">
+    <script> src="test.js" </script>
+</head>
+<body>
+    <script>
+        
+    </script>
+    
+    <div class="container">
+        <h1>Giải phương trình</h1>
+
+        <div class="form">
+            <label for="loaiPT">Chọn loại phương trình</label>
+            <select id="loaiPT" onchange="onSelectChange()">
+                <option value="bac1">PT bac 1</option>
+                <option value="bac2">PT bậc 2</option>
+            </select>
+        </div>
+
+        <div class="form" id="heSoA">
+            <label for="heSoA">Hệ số a</label>
+            <input type="number" id="heSoA" placeholder="Nhập a">
+        </div>
+        <div class="form" id="heSoB">
+            <label for="heSoB">Hệ số b</label>
+            <input type="number" id="heSoB" placeholder="Nhập b">
+        </div>
+        <div class="form" id="heSoC" style="display:none;">
+            <label for="heSoC">Hệ số c</label>
+            <input type="number" id="heSoC" placeholder="Nhập c">
+        </div>
+
+        <button onclick="giaiPT()">Giải PT</button>
+        
+        <div class="result">
+            <p id="phuongTrinh"></p>
+            <p id="nghiem"></p>
+        </div>
+    </div>
+
+    <script>
+        function onSelectChange() {
+            const loaiPT = document.getElementById('loaiPT').value;
+            if (loaiPT === 'bac1') {
+                document.getElementById('heSoC').style.display = 'none';
+            } else {
+                document.getElementById('heSoC').style.display = 'block';
+            }
+        }
+
+        function giaiPT() {
+            const loaiPT = document.getElementById('loaiPT').value;
+            const a = Number(document.getElementById("heSoA").value);
+            const b = Number(document.getElementById("heSoB").value);
+            const c = loaiPT === 'bac2' ? Number(document.getElementById("heSoC").value) : null;
+
+            let phuongTrinh = "";
+            let nghiem = "";
+
+            if (loaiPT === 'bac1') {
+                phuongTrinh = 'Phương trình: ${a}x + ${b} = 0';
+                if (a === 0) {
+                    if (b === 0) {
+                        nghiem = "PT vô số nghiệm.";
+                    } else {
+                        nghiem = "PT vô nghiệm.";
+                    }
+                } else {
+                    nghiem = 'Có nghiệm là: ${-b / a}';
+                }
+            } else if (loaiPT === 'bac2') {
+                phuongTrinh = 'Phương trình: ${a}x² + ${b}x + ${c} = 0';
+                const delta = b * b - 4 * a * c;
+                if (a === 0) {
+                    nghiem = "Err4";
+                } else if (delta < 0) {
+                    nghiem = "PT vô nghiệm.";
+                } else if (delta === 0) {
+                    nghiem = 'Pt có nghiệm kép: x = ${-b / (2 * a)}';
+                } else {
+                    const x1 = (-b + Math.sqrt(delta)) / (2 * a);
+                    const x2 = (-b - Math.sqrt(delta)) / (2 * a);
+                    nghiem = 'PT có 2 nghiệm: x1 = ${x1}, x2 = ${x2}';
+                }
+            }
+
+            document.getElementById("phuongTrinh").innerHTML = phuongTrinh;
+            document.getElementById("nghiem").innerHTML = nghiem;
+        }
+    </script>
+</body>
+</html>

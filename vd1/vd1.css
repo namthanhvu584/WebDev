@@ -1,0 +1,76 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+}
+
+.wrapper {
+  width: 90%;
+  max-width: 1300px;
+  margin: 10px auto;
+}
+.brandname {
+  color: deeppink;
+  font-size: 40px;
+  font-style: italic;
+  text-align: center;
+}
+nav {
+  background-color: deeppink;
+  border-radius: 5px 5px 0 0;
+}
+nav > ul {
+  list-style: none;
+  display: flex;
+}
+nav > ul > li {
+  padding: 10px;
+  padding-right: 0;
+}
+nav a {
+  color: #fff;
+  font-weight: bold;
+  border-right: 2px solid #fff;
+  padding-right: 10px;
+}
+nav li:last-child > a {
+  border: none;
+}
+main {
+  background-color: antiquewhite;
+  display: flex;
+  justify-content: space-between;
+}
+main > div {
+  width: 32%;
+  height: 200px;
+  background-color: aquamarine;
+  margin-top: 5px;
+}
+
+.stars {
+  background-color: deeppink;
+  border-radius: 5px;
+  padding: 10px 15px;
+}
+.stars > h2 {
+  color: #fff;
+  border-left: 3px solid #fff;
+  padding-left: 10px;
+  margin-bottom: 10px;
+}
+.stars > ul {
+  list-style: none;
+  background-color: antiquewhite;
+  display: flex;
+  justify-content: space-between;
+}
+.stars > ul > li {
+  width: 32%;
+  height: 100px;
+  margin-top: 10px;
+  background-color: aqua;
+}
